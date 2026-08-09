@@ -1,0 +1,205 @@
+/* ==========================================
+   ADMIN CONTROLS & FILTERS
+   ========================================== */
+.admin-controls {
+  display: flex;
+  gap: 16px;
+  margin: 30px 0;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.search-input {
+  flex: 1;
+  min-width: 220px;
+  background: var(--bg-card);
+  border: 1px solid #2a2a2a;
+  border-radius: 10px;
+  padding: 12px 16px;
+  color: var(--text-white);
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.search-input:focus {
+  border-color: var(--neon-green);
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap; /* Allows buttons to wrap on very narrow screens */
+}
+
+.filter-btn {
+  background: var(--bg-card);
+  border: 1px solid #2a2a2a;
+  color: var(--text-gray);
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-size: 13px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+}
+
+.filter-btn.active {
+  border-color: var(--neon-green);
+  color: var(--neon-green);
+}
+
+/* ==========================================
+   USER TABLE & ROWS (DESKTOP)
+   ========================================== */
+.user-table {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.user-table-header,
+.user-row {
+  display: grid;
+  grid-template-columns: 1.2fr 1.6fr 1fr 0.6fr 0.8fr 0.8fr;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+}
+
+.user-table-header {
+  color: var(--text-gray);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.user-row {
+  background: var(--bg-card);
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  font-size: 14px;
+  transition: border-color 0.2s ease;
+}
+
+.user-email {
+  color: var(--text-gray);
+  font-size: 13px;
+  word-break: break-all; /* Prevents long emails from breaking mobile containers */
+}
+
+.status-badge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  text-transform: uppercase;
+  width: fit-content;
+  text-align: center;
+}
+
+.status-badge.active {
+  background: #1a2400;
+  color: var(--neon-green);
+}
+
+.status-badge.banned {
+  background: #2a0f0f;
+  color: #ff5c5c;
+}
+
+.ban-btn {
+  background: transparent;
+  border: 1px solid #ff5c5c;
+  color: #ff5c5c;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: fit-content;
+}
+
+.ban-btn.unban {
+  border-color: var(--neon-green);
+  color: var(--neon-green);
+}
+
+.no-results {
+  color: var(--text-gray);
+  text-align: center;
+  padding: 40px;
+}
+
+
+/* ==========================================
+   TABLETS & MEDIUM SCREENS (Max-Width: 1024px)
+   ========================================== */
+@media (max-width: 1024px) {
+  .user-table-header,
+  .user-row {
+    grid-template-columns: 1.2fr 1.5fr 0.8fr 0.8fr 0.8fr; /* Compresses actions/status */
+    padding: 12px 16px;
+    font-size: 13px;
+  }
+}
+
+
+/* ==========================================
+   MOBILE DEVICES (Max-Width: 768px)
+   Converts rows into readable cards
+   ========================================== */
+@media (max-width: 768px) {
+  .admin-controls {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    margin: 20px 0;
+  }
+
+  .search-input {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  .filter-buttons {
+    width: 100%;
+    justify-content: flex-start;
+    overflow-x: auto; /* Scrollable filter buttons if needed */
+    padding-bottom: 4px;
+  }
+
+  .filter-btn {
+    flex: 1;
+    text-align: center;
+    padding: 8px 12px;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+
+  /* Hide header on mobile */
+  .user-table-header {
+    display: none;
+  }
+
+  /* Transform table rows into stacked cards */
+  .user-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  .user-row > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .ban-btn {
+    width: 100%; /* Full width button on mobile cards */
+    padding: 8px;
+    text-align: center;
+    margin-top: 4px;
+  }
+}

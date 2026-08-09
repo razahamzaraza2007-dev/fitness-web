@@ -1,0 +1,113 @@
+/* ==========================================
+   DAY LIST CONTAINER
+   ========================================== */
+.day-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 40px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ==========================================
+   DAY CARD & HEADER
+   ========================================== */
+.day-card {
+  background: var(--bg-card);
+  border: 1px solid #2a2a2a;
+  border-radius: 14px;
+  padding: 24px;
+  transition: border-color 0.2s ease;
+}
+
+.day-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  gap: 12px;
+}
+
+.day-header h3 {
+  text-transform: uppercase;
+  color: var(--neon-green);
+  font-size: 16px;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.day-focus {
+  color: var(--text-gray);
+  font-size: 13px;
+  margin: 0;
+}
+
+/* ==========================================
+   EXERCISE LIST & ITEMS
+   ========================================== */
+.exercise-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0;
+  margin: 0;
+}
+
+.exercise-list li {
+  color: var(--text-white);
+  font-size: 14px;
+  padding: 10px 14px;
+  background: #141414;
+  border-radius: 8px;
+  border: 1px solid #2a2a2a;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  word-break: break-word; /* Prevents long text from overflowing the container */
+}
+
+/* ==========================================
+   TABLET & MOBILE RESPONSIVE (Max-Width: 768px)
+   ========================================== */
+@media (max-width: 768px) {
+  .day-list {
+    margin-top: 24px;
+    gap: 14px;
+  }
+
+  .day-card {
+    padding: 18px 16px;
+  }
+
+  .day-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    margin-bottom: 12px;
+  }
+
+  .day-header h3 {
+    font-size: 15px;
+  }
+
+  .day-focus {
+    font-size: 12.5px;
+  }
+}
+
+/* ==========================================
+   EXTRA SMALL MOBILE (Max-Width: 480px)
+   ========================================== */
+@media (max-width: 480px) {
+  .day-card {
+    padding: 14px 12px;
+    border-radius: 12px;
+  }
+
+  .exercise-list li {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+}
